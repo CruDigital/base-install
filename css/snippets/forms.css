@@ -1,0 +1,92 @@
+body {
+  padding: 60px;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+
+  /* Hide the input, but have it still be clickable */
+  opacity: 0;
+  float: left;
+  clear: both;
+  width: 1px;
+  height: 1px;
+}
+
+input[type='radio'] + label,
+input[type='checkbox'] + label {
+  color: #6d6e71;
+  vertical-align: bottom;
+  text-align: right;
+  line-height: 40px;
+
+  margin: 0 0 0 41px;
+  padding: 10px 10px 10px 0;
+
+  text-shadow: 1px 1px 0px #ffffff;
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+input[type='checkbox'] + label span.checkbox,
+input[type='radio'] + label span.radiobtn {
+  width: 21px;
+  height: 21px;
+  background: url('../../images/snippets/checkbox.png') left center no-repeat;
+  display: block;
+
+  /* Make look clickable because they are */
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+
+  padding: 10px;
+  /*margin-left: -41px;*/
+}
+input[type='radio'] + label span.radiobtn {
+  background: url('../../images/snippets/checkbox.png') left center no-repeat;
+}
+
+input[type='checkbox']:checked + label span.checkbox,
+input[type='checkbox'].checked + label span.checkbox,
+input[type='checkbox'] + label.checkbox-checked span.checkbox,
+input[type='checkbox'].checked + label.checkbox-checked span.checkbox,
+input[type='checkbox'] + label.checkbox-checked span.checkbox,
+
+input[type='radio']:checked + label span.radiobtn,
+input[type='radio'].checked + label span.radiobtn,
+input[type='radio'] + label.radiobtn-checked span.radiobtn,
+input[type='radio'].checked + label.radiobtn-checked span.radiobtn,
+input[type='radio'] + label.radiobtn-checked span.radiobtn {
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+input[type='checkbox'] + label.checkbox-checked span.checkbox,
+input[type='radio'] + label.radiobtn-checked span.radiobtn {
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+html.lt-ie9 input[type='checkbox'] + label,
+html.lt-ie9 input[type='radio'] + label {
+  background-color: transparent;
+}
+html.lt-ie9 input[type='checkbox'] + label span.checkbox,
+html.lt-ie9 input[type='radio'] + label span.radiobtn {
+/*  padding-bottom: 9px;
+  border: 1px solid #d6d6d6;*/
+}
+html.no-opacity input[type='checkbox'],
+html.no-opacity input[type='radio'] {
+  /*                 This works in IE 8 & 9 too
+     ... but also 5, 6, 7 */
+  filter: alpha(opacity=0);
+
+  /*                 Older than Firefox 0.9 */
+  -moz-opacity: 0;
+
+  /*                 Safari 1.x (pre WebKit!) */
+  -khtml-opacity: 0;
+}

@@ -1,5 +1,3 @@
-(function() {
-
 /**
  * This is our base install scripts js file - it contains various shims for browser behaviour and a few other helpful methods
  *
@@ -8,12 +6,14 @@
  * @author: Matthew Daniels, 2013
  */
 
+(function() {
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Polyfills for less quality browsers (read: IE7-8)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // For IE8 and earlier versions - a Date.now() method
-!Date.now && Date.now = function() { return +new Date(); }
+Date.now = Date.now ? Date.now : function() { return +new Date(); }
 
 // setup an indexOf method on Array if it does not exist - this will get around any Vendor issues surrounding ECMA standards and non-implementation (*cough* IE *cough*)
 if(!Array.prototype.indexOf) {
@@ -80,6 +80,8 @@ if(!window.cancelAnimationFrame) { window.cancelAnimationFrame = function(id) { 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // END: Polyfills
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 
